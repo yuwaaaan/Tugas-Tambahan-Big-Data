@@ -2,13 +2,33 @@
 
 Repositori ini berisi implementasi analisis data untuk memprediksi risiko sepsis menggunakan data Rekam Medis Elektronik (EHR). Tugas ini mendemonstrasikan prinsip reproduksibilitas pada data medis, mulai dari tahap pembersihan data hingga pemodelan klinis.
 
-## Spesifikasi Lingkungan (Environment)
-- **Bahasa Pemrograman**: R 
-- **Library Utama**: `dplyr` untuk manipulasi data dan vektorisasi. Operasi I/O (membaca/menyimpan data) murni menggunakan fungsi bawaan Base R (`read.csv` dan `write.csv`).
+## 💻 Spesifikasi Lingkungan & Versi Software (Environment)
+Untuk menjamin reproduksibilitas teknis secara penuh, *pipeline* ini dikembangkan dan diuji pada spesifikasi lingkungan berikut:
+- **Bahasa Pemrograman**: R (Version 4.3.2)
+- **Library Utama**: `dplyr` (Version 1.1.4) untuk manipulasi data dan vektorisasi. Operasi I/O (membaca/menyimpan data) murni menggunakan fungsi bawaan Base R (`read.csv` dan `write.csv`).
 - **Input Data**: `data_final_beneran.csv` (Data sampel kohort sepsis fiktif).
 - **Output Data**: `ehr_sepsis_predictions_clean.csv`
 
-## Data Dictionary
+---
+
+## 🌐 Kepatuhan Prinsip FAIR (FAIR Compliance)
+Repositori dan dataset simulasi ini disusun dengan mematuhi prinsip **FAIR** (*Findable, Accessible, Interoperable, Reusable*) dalam manajemen tata kelola data kesehatan:
+
+### Findable (Dapat Ditemukan)
+Seluruh kode, dokumentasi, dan dataset contoh disimpan dalam repositori GitHub yang memiliki struktur folder serta pelacakan versi (*version control*) yang jelas dan terorganisir.
+
+### Accessible (Dapat Diakses)
+Repositori ini bersifat publik sehingga dapat diakses, diunduh, dan diaudit secara terbuka oleh peneliti lain atau klinisi melalui GitHub.
+
+### Interoperable (Dapat Dioperasikan Bersama)
+Dataset dikembangkan menggunakan format universal (`.csv`) serta mengadopsi nomenklatur variabel standar medis baku (`heart_rate`, `systolic_bp`, `temperature`) untuk menjaga interoperabilitas data klinis.
+
+### Reusable (Dapat Digunakan Kembali)
+Dokumentasi *pipeline* telah dilengkapi dengan `README.md`, *Data Dictionary* yang merinci satuan klinis medis, serta informasi versi *software* yang detail agar analisis ini dapat direplikasi dan digunakan kembali di masa depan.
+
+---
+
+## 📖 Data Dictionary
 Dokumentasi ini menjelaskan metadata dari variabel mentah, fitur yang direkayasa (*engineered features*), serta hasil luaran model di dalam *pipeline* analisis.
 
 ### 1. Variabel Mentah & Penyelarasan Nama (Mapping)
@@ -29,4 +49,4 @@ Dokumentasi ini menjelaskan metadata dari variabel mentah, fitur yang direkayasa
 | Nama Output | Tipe Data | Deskripsi Klinis |
 | :--- | :--- | :--- |
 | `sepsis_prob` | Numerik | Probabilitas kontinu (0-1) yang dihasilkan oleh model Regresi Logistik (Binomial). |
-| `high_risk_alert` | Biner | Bendera peringatan bahaya (1 = Risiko Tinggi, 0 = Aman). Menggunakan batas ambang (*threshold*) probabilitas 0.65. |
+| `high_risk_alert` | Biner | Bendera peringatan bahaya (1 = Risiko Tinggi, 0 = Aman). Menggunakan batas ambang (*threshold*) probabilitas 0.65 untuk meminimalkan risiko *alarm fatigue* di ruang ICU. |
