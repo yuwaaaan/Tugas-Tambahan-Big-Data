@@ -2,16 +2,15 @@
 
 Repositori ini berisi implementasi analisis data untuk memprediksi risiko sepsis menggunakan data Rekam Medis Elektronik (EHR). Tugas ini mendemonstrasikan prinsip reproduksibilitas pada data medis, mulai dari tahap pembersihan data hingga pemodelan klinis.
 
-## 💻 Spesifikasi Lingkungan & Versi Software (Environment)
+## Spesifikasi Lingkungan & Versi Software (Environment)
 Untuk menjamin reproduksibilitas teknis secara penuh, *pipeline* ini dikembangkan dan diuji pada spesifikasi lingkungan berikut:
 - **Bahasa Pemrograman**: R (Version 4.3.2)
 - **Library Utama**: `dplyr` (Version 1.1.4) untuk manipulasi data dan vektorisasi. Operasi I/O (membaca/menyimpan data) murni menggunakan fungsi bawaan Base R (`read.csv` dan `write.csv`).
 - **Input Data**: `data_final_beneran.csv` (Data sampel kohort sepsis fiktif).
 - **Output Data**: `ehr_sepsis_predictions_clean.csv`
 
----
 
-## 🌐 Kepatuhan Prinsip FAIR (FAIR Compliance)
+## Kepatuhan Prinsip FAIR (FAIR Compliance)
 Repositori dan dataset simulasi ini disusun dengan mematuhi prinsip **FAIR** (*Findable, Accessible, Interoperable, Reusable*) dalam manajemen tata kelola data kesehatan:
 
 ### Findable (Dapat Ditemukan)
@@ -26,9 +25,8 @@ Dataset dikembangkan menggunakan format universal (`.csv`) serta mengadopsi nome
 ### Reusable (Dapat Digunakan Kembali)
 Dokumentasi *pipeline* telah dilengkapi dengan `README.md`, *Data Dictionary* yang merinci satuan klinis medis, serta informasi versi *software* yang detail agar analisis ini dapat direplikasi dan digunakan kembali di masa depan.
 
----
 
-## 📖 Data Dictionary
+## Data Dictionary
 Dokumentasi ini menjelaskan metadata dari variabel mentah, fitur yang direkayasa (*engineered features*), serta hasil luaran model di dalam *pipeline* analisis.
 
 ### 1. Variabel Mentah & Penyelarasan Nama (Mapping)
